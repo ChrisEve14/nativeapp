@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View, TextInput, Button, FlatList, Modal } from 'react-native';
+import { Text, View, TextInput, Button, FlatList, Modal, TouchableOpacity } from 'react-native';
 import { styles } from './styles'
 
 
@@ -14,22 +14,26 @@ export default function App() {
     setTask('');
   }
 
+  const onHandleSelected = (item) => {
+    setSelectedCharacter(item);
+    setModalVisible(true);
 
-  const renderItem = ({item}) =>{
-    <View style={styles.listItemContainer}>
-      <Text style={styles.text}>{item.value}</Text>
-    </View>
   }
 
+  const renderItem = ({item}) => (
+    <TouchableOpacity style={styles.listItemContainer} onPress= {() => onHandleSelected(item)}>
+      <Text style={styles.textItem}>{item.value}</Text>
+    </TouchableOpacity>
+  )
+
   const onHandleCancel = () => {
-    return null
+    setModalVisible(!modalVisible);
   }
 
   const onHandleDeleteCharacter = () => {
-   return null 
+   setTaskList((prevTaskList) => prevTaskList.filter((item) => item.id !== selectedCharacter.id))
+   setModalVisible(!modalVisible);
   }
-
- 
 
   return (
     <View style={styles.container}>
