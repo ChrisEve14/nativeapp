@@ -6,7 +6,7 @@ import { styles } from './styles'
 export default function App() {
   const [task, setTask] = useState('');
   const [taskList, setTaskList] = useState([]);
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   
   const onHandleTask = () => {
