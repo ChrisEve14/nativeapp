@@ -14,10 +14,6 @@ export default function App() {
     setTask('');
   }
 
-  const onHandleSelected = (item) => {
-    setSelectedCharacter(item);
-    setModalVisible(!modalVisible);
-  }
 
   const renderItem = ({item}) =>{
     <View style={styles.listItemContainer}>
@@ -26,15 +22,14 @@ export default function App() {
   }
 
   const onHandleCancel = () => {
-    setModalVisible(!modalVisible);
+    return null
   }
 
   const onHandleDeleteCharacter = () => {
-    setTaskList((prevTaskList) => prevTaskList.filter((item) => item.id !== selectedCharacter.id))
-    setModalVisible(!modalVisible);
+   return null 
   }
 
-  const onHandleChange = (text) => setTask(text);
+ 
 
   return (
     <View style={styles.container}>
