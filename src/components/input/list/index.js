@@ -2,7 +2,7 @@ import React from "react";
 import { FlatList, Text, View, } from "react-native";
 import {styles} from './styles';
 
-const CharacterList = ({ item,  taskList, renderItem }) => {
+const CharacterList = ({ taskList, renderItem }) => {
     return (
     
         <View>

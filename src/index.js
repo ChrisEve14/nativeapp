@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View, TextInput, Button, FlatList, Modal, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import { styles } from './styles'
 import { AddCharacter, CharacterDestiny, CharacterItem } from './components';
 import CharacterList from './components/input/list';
@@ -40,8 +40,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <AddCharacter task={task} onHandleTask={onHandleTask} onHandleChange={onHandleChange} />
-      <CharacterList item={item} taskList={taskList} renderItem={renderItem} />
-      <CharacterDestiny onHandleCancel={onHandleCancel} onHandleDeleteCharacter={onHandleDeleteCharacter} />
+      <CharacterList taskList={taskList} renderItem={renderItem} />
+      <CharacterDestiny modalVisible={modalVisible} selectedCharacter={selectedCharacter} onHandleCancel={onHandleCancel} onHandleDeleteCharacter={onHandleDeleteCharacter} />
     </View>
   );
 }
